@@ -1,0 +1,6 @@
+{
+  "name": "Sữa Hạt & Ăn Sáng Lành Mạnh",
+  "description": "Trang giới thiệu chuỗi quầy sữa hạt nguyên chất và thức ăn sáng lành mạnh như chuối hấp, khoai lang.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
