@@ -41,6 +41,16 @@ export default function MenuSection({ onSelectIngredient }: MenuSectionProps) {
           </p>
         </div>
 
+        {/* Real product photo */}
+        <div className="rounded-2xl overflow-hidden border border-blue-500/10 shadow-[0_10px_30px_rgba(14,165,233,0.08)] mb-12 max-w-4xl mx-auto">
+          <img
+            src="/images/sx-4-vi-sua-hat.jpg"
+            alt="Các vị sữa hạt Sữa Xanh xay nguyên hạt, nấu mới mỗi ngày"
+            className="w-full h-52 sm:h-64 md:h-80 object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+
         {/* Filter Navigation Tabs */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex bg-slate-50 border border-slate-200 p-1 rounded shadow-inner space-x-1">
@@ -174,6 +184,22 @@ export default function MenuSection({ onSelectIngredient }: MenuSectionProps) {
                             ))}
                           </div>
                         </div>
+
+                        {/* Usage & caution */}
+                        {(item.usage || item.caution) && (
+                          <div className="space-y-1 pt-1 border-t border-slate-100">
+                            {item.usage && (
+                              <p className="text-[10px] text-slate-500 leading-relaxed">
+                                <span className="font-bold text-slate-600">Lượng dùng:</span> {item.usage}
+                              </p>
+                            )}
+                            {item.caution && (
+                              <p className="text-[10px] text-amber-600 leading-relaxed">
+                                <span className="font-bold">Lưu ý:</span> {item.caution}
+                              </p>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -198,7 +224,7 @@ export default function MenuSection({ onSelectIngredient }: MenuSectionProps) {
             <div>
               <h3 className="text-sm font-display font-bold uppercase tracking-wider text-slate-800 mb-6 flex items-center space-x-2">
                 <span className="w-2 h-2 rounded bg-blue-500 animate-pulse"></span>
-                <span>Gói Combo Bữa Sáng Đầy Đủ (Tiết kiệm 5.000đ)</span>
+                <span>Gói Combo Bữa Sáng Đầy Đủ</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {COMBO_ITEMS.map((combo) => (

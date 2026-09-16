@@ -12,6 +12,8 @@ export interface MenuItem {
   benefits: string[];
   tags: string[];
   isHot?: boolean;
+  usage?: string;
+  caution?: string;
 }
 
 export interface ComboItem {

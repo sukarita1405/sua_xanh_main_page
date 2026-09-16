@@ -9,22 +9,6 @@ interface BreakfastPlannerProps {
   onResetPreselected: () => void;
 }
 
-interface Topping {
-  id: string;
-  name: string;
-  price: number;
-  calories: number;
-  protein: number;
-  fiber: number;
-}
-
-const EXTRA_TOPPINGS: Topping[] = [
-  { id: 't1', name: 'Dừa Sợi Bào Tươi', price: 2000, calories: 15, protein: 0.1, fiber: 0.5 },
-  { id: 't2', name: 'Hạt Chia Hữu Cơ', price: 4000, calories: 20, protein: 0.8, fiber: 1.6 },
-  { id: 't3', name: 'Hạt Điều Giã Nhuyễn', price: 5000, calories: 35, protein: 1.1, fiber: 0.3 },
-  { id: 't4', name: 'Yến Mạch Giòn Rắc', price: 3000, calories: 25, protein: 0.7, fiber: 0.6 },
-];
-
 export default function BreakfastPlanner({
   preselectedMilkId,
   preselectedCarbId,
@@ -33,8 +17,6 @@ export default function BreakfastPlanner({
   // Main Selection States
   const [selectedMilk, setSelectedMilk] = useState<MenuItem | null>(null);
   const [selectedCarb, setSelectedCarb] = useState<MenuItem | null>(null);
-  const [sweetness, setSweetness] = useState<string>('30% Sweet (Khuyên dùng)');
-  const [selectedToppings, setSelectedToppings] = useState<Topping[]>([]);
 
   // Checkout Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,25 +55,8 @@ export default function BreakfastPlanner({
   const handleReset = () => {
     setSelectedMilk(null);
     setSelectedCarb(null);
-    setSweetness('30% Sweet (Khuyên dùng)');
-    setSelectedToppings([]);
     onResetPreselected();
   };
-
-  const handleToppingToggle = (topping: Topping) => {
-    if (selectedToppings.some((t) => t.id === topping.id)) {
-      setSelectedToppings(selectedToppings.filter((t) => t.id !== topping.id));
-    } else {
-      setSelectedToppings([...selectedToppings, topping]);
-    }
-  };
-
-  const sweetnessOptions = [
-    '0% Sweet (Không Đường)',
-    '30% Sweet (Khuyên dùng)',
-    '50% Sweet (Ngọt Vừa)',
-    '100% Sweet (Ngọt Truyền Thống)',
-  ];
 
   // Nutritional & Price Calculations
   const milks = MENU_ITEMS.filter((item) => item.type === 'milk');
@@ -119,13 +84,6 @@ export default function BreakfastPlanner({
       fiber += selectedCarb.fiber;
       fat += selectedCarb.fat;
     }
-
-    selectedToppings.forEach((top) => {
-      price += top.price;
-      calories += top.calories;
-      protein += top.protein;
-      fiber += top.fiber;
-    });
 
     // Apply 5,000 VND Combo Discount if BOTH Milk & Carb are selected!
     const isCombo = selectedMilk !== null && selectedCarb !== null;
@@ -337,79 +295,8 @@ export default function BreakfastPlanner({
               </div>
             </div>
  
-            {/* Step 3: Customizer Details */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
-              {/* Sweetness Option */}
-              <div className="space-y-4">
-                <h3 className="text-base font-display font-bold text-slate-800 flex items-center space-x-2">
-                  <span className="w-6 h-6 rounded bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold border border-blue-100">3a</span>
-                  <span>Độ Ngọt Của Sữa</span>
-                </h3>
-                <div className="space-y-2 bg-white p-4 rounded border border-slate-200">
-                  {sweetnessOptions.map((opt) => (
-                    <label
-                      key={opt}
-                      className="flex items-center space-x-3 text-xs sm:text-sm text-slate-600 cursor-pointer p-2 rounded hover:bg-blue-500/5 transition-colors"
-                    >
-                      <input
-                        type="radio"
-                        name="sweetness"
-                        checked={sweetness === opt}
-                        onChange={() => setSweetness(opt)}
-                        disabled={!selectedMilk}
-                        className="w-4 h-4 text-blue-600 border-slate-300 bg-white focus:ring-blue-500 disabled:opacity-40"
-                      />
-                      <span className={!selectedMilk ? 'opacity-40 select-none' : ''}>{opt}</span>
-                    </label>
-                  ))}
-                  {!selectedMilk && (
-                    <span className="block text-[10px] text-blue-600/90 font-medium italic mt-1">
-                      * Hãy chọn một chai sữa hạt ở bước 1 để tinh chỉnh độ ngọt.
-                    </span>
-                  )}
-                </div>
-              </div>
- 
-              {/* Toppings Option */}
-              <div className="space-y-4">
-                <h3 className="text-base font-display font-bold text-slate-800 flex items-center space-x-2">
-                  <span className="w-6 h-6 rounded bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold border border-blue-100">3b</span>
-                  <span>Topping Thêm Đỉnh</span>
-                </h3>
-                <div className="space-y-2 bg-white p-4 rounded border border-slate-200">
-                  {EXTRA_TOPPINGS.map((top) => {
-                    const isChecked = selectedToppings.some((t) => t.id === top.id);
-                    return (
-                      <label
-                        key={top.id}
-                        className="flex items-center justify-between text-xs sm:text-sm text-slate-600 cursor-pointer p-2 rounded hover:bg-blue-500/5 transition-colors"
-                      >
-                        <div className="flex items-center space-x-3">
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={() => handleToppingToggle(top)}
-                            disabled={!selectedCarb}
-                            className="w-4 h-4 text-blue-600 border-slate-300 rounded bg-white focus:ring-blue-500 disabled:opacity-40"
-                          />
-                          <span className={!selectedCarb ? 'opacity-40 select-none' : ''}>{top.name}</span>
-                        </div>
-                        <span className={`text-[11px] font-semibold text-blue-600 ${!selectedCarb ? 'opacity-40' : ''}`}>
-                          +{formatPrice(top.price)}
-                        </span>
-                      </label>
-                    );
-                  })}
-                  {!selectedCarb && (
-                    <span className="block text-[10px] text-blue-600/90 font-medium italic mt-1">
-                      * Hãy chọn một món tinh bột ở bước 2 để thêm các loại hạt rắc lên trên.
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
           </div>
- 
+
           {/* Real-time Dashboard: 5 Columns */}
           <div className="lg:col-span-5 bg-white rounded border border-slate-200 p-6 sm:p-8 space-y-6 lg:sticky lg:top-24 shadow-md card-3d">
             <div className="flex items-center justify-between">
@@ -435,13 +322,6 @@ export default function BreakfastPlanner({
                   {selectedMilk ? `${selectedMilk.name}` : <span className="text-slate-400 font-normal italic">Chưa chọn sữa</span>}
                 </span>
               </div>
-              {selectedMilk && (
-                <div className="flex items-center justify-between bg-slate-50 px-3 py-1.5 rounded border border-slate-100 text-[11px] text-slate-600">
-                  <span>Mức độ đường:</span>
-                  <span className="font-bold text-blue-600">{sweetness}</span>
-                </div>
-              )}
- 
               {/* Carb Row */}
               <div className="flex items-center justify-between">
                 <span className="text-slate-500 text-xs sm:text-sm">Món tinh bột sáng:</span>
@@ -449,20 +329,6 @@ export default function BreakfastPlanner({
                   {selectedCarb ? `${selectedCarb.name}` : <span className="text-slate-400 font-normal italic">Chưa chọn món tinh bột</span>}
                 </span>
               </div>
- 
-              {/* Toppings Row */}
-              {selectedToppings.length > 0 && (
-                <div className="space-y-1 bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                  <span className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider">Toppings rắc rưới:</span>
-                  <div className="flex flex-wrap gap-1">
-                    {selectedToppings.map((top) => (
-                      <span key={top.id} className="inline-flex text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded">
-                        + {top.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
  
             {/* Nutrition Progress Bars */}
@@ -588,7 +454,7 @@ export default function BreakfastPlanner({
                     <ul className="space-y-1 text-sm text-slate-600">
                       {selectedMilk && (
                         <li className="flex justify-between items-center font-medium">
-                          <span>🍼 {selectedMilk.name} ({sweetness})</span>
+                          <span>🍼 {selectedMilk.name}</span>
                           <span>{formatPrice(selectedMilk.price)}</span>
                         </li>
                       )}
@@ -598,12 +464,6 @@ export default function BreakfastPlanner({
                           <span>{formatPrice(selectedCarb.price)}</span>
                         </li>
                       )}
-                      {selectedToppings.map((top) => (
-                        <li key={top.id} className="flex justify-between items-center text-xs text-slate-500 pl-4">
-                          <span>+ Topping: {top.name}</span>
-                          <span>{formatPrice(top.price)}</span>
-                        </li>
-                      ))}
                       {summary.isCombo && (
                         <li className="flex justify-between items-center text-xs text-emerald-600 font-bold border-t border-dashed border-slate-200 pt-2.5">
                           <span>Ưu đãi Combo bữa sáng:</span>
@@ -716,7 +576,7 @@ export default function BreakfastPlanner({
                   <div className="space-y-2">
                     <h5 className="text-xl font-display font-extrabold text-slate-800">Đặt Bữa Sáng Thành Công!</h5>
                     <p className="text-sm text-slate-600 px-4">
-                      Chào <strong>{customerName}</strong>, Lành &amp; Sạch đã lưu công thức thiết kế riêng của bạn. Sữa và củ quả ấm nóng dẻo ngọt sẽ sẵn sàng tại quầy lúc <strong>{pickupTime}</strong> sáng mai.
+                      Chào <strong>{customerName}</strong>, Sữa Xanh đã lưu công thức thiết kế riêng của bạn. Sữa và củ quả ấm nóng dẻo ngọt sẽ sẵn sàng tại quầy lúc <strong>{pickupTime}</strong> sáng mai.
                     </p>
                   </div>
  

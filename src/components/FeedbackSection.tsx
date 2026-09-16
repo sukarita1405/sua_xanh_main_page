@@ -18,7 +18,7 @@ export default function FeedbackSection() {
             Đồng Hành Cùng Sức Khỏe Cộng Đồng
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Hơn 2,000+ khách hàng tin chọn giải pháp bữa sáng mộc mạc hữu cơ mỗi ngày. Sự tin tưởng của quý khách chính là năng lượng bền bỉ nhất của tập thể Lành &amp; Sạch.
+            Hơn 2,000+ khách hàng tin chọn giải pháp bữa sáng mộc mạc hữu cơ mỗi ngày. Sự tin tưởng của quý khách chính là năng lượng bền bỉ nhất của tập thể Sữa Xanh.
           </p>
         </div>
 

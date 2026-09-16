@@ -101,8 +101,8 @@ export default function Hero({ onCtatClick }: HeroProps) {
             {/* Main Hero Photo */}
             <div className="relative rounded-2xl overflow-hidden border border-blue-500/10 shadow-[0_10px_30px_rgba(14,165,233,0.1)] aspect-video lg:aspect-square">
               <img
-                src="/src/assets/images/hero_breakfast_1784087707586.jpg"
-                alt="Bữa sáng sữa hạt khoai lang chuối hấp dồi dào dinh dưỡng"
+                src="/images/sx-anh-bia-moi.jpg"
+                alt="Đội ngũ Sữa Xanh - Tụi Con Bán Sữa Hạt tại quầy bán sữa hạt"
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />

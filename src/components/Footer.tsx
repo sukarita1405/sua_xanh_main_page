@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, Instagram, Facebook, Mail, ShieldCheck } from 'lucide-react';
+import { Instagram, Facebook, ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
   onLinkClick: (sectionId: string) => void;
@@ -15,21 +15,23 @@ export default function Footer({ onLinkClick }: FooterProps) {
           {/* Brand Info Column: 4 Columns */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-3.5">
             <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center border border-blue-100">
-                <Leaf className="w-4.5 h-4.5 text-blue-600 fill-blue-600/10" />
+              <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center border border-blue-100 overflow-hidden">
+                <img src="/images/sx-logo.png" alt="Sữa Xanh" className="w-full h-full object-contain" />
               </div>
               <span className="font-display font-extrabold text-base text-slate-800 tracking-tight">
-                LÀNH <span className="text-blue-600 font-semibold">&amp; SẠCH</span>
+                SỮA <span className="text-blue-600 font-semibold">XANH</span>
               </span>
             </div>
-            
+
             <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-sm">
-              Chuỗi Kiosk sữa hạt hữu cơ nguyên chất &amp; bữa sáng tự nhiên lành mạnh tiên phong tại TP.HCM.
+              Chuỗi quầy sữa hạt hữu cơ nguyên chất &amp; bữa sáng tự nhiên lành mạnh tiên phong tại TP.HCM - "Tụi Con Bán Sữa Hạt", đã được 12 năm.
             </p>
 
             <div className="flex items-center space-x-3 pt-1">
               <a
-                href="#"
+                href="https://www.facebook.com/TuiConBanSuaHat"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition-all shadow-2xs"
                 title="Facebook"
               >
@@ -41,13 +43,6 @@ export default function Footer({ onLinkClick }: FooterProps) {
                 title="Instagram"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="mailto:hotro@lanhvasach.vn"
-                className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition-all shadow-2xs"
-                title="Email"
-              >
-                <Mail className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -109,9 +104,9 @@ export default function Footer({ onLinkClick }: FooterProps) {
                 </button>
               </li>
               <li>
-                <a href="tel:0901234561" className="text-slate-600 hover:text-blue-600 transition-colors inline-flex items-center whitespace-nowrap">
+                <a href="tel:0825596160" className="text-slate-600 hover:text-blue-600 transition-colors inline-flex items-center whitespace-nowrap">
                   <span>Hotline:</span>
-                  <span className="ml-1 font-semibold text-slate-800">0901.234.561</span>
+                  <span className="ml-1 font-semibold text-slate-800">082.559.6160</span>
                 </a>
               </li>
             </ul>
@@ -148,10 +143,10 @@ export default function Footer({ onLinkClick }: FooterProps) {
         {/* Lower row details - compact and clean single-line on sm+ */}
         <div className="border-t border-slate-200 pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <span className="whitespace-nowrap">
-            &copy; {currentYear} Lành &amp; Sạch. Bảo lưu toàn bộ quyền thương hiệu.
+            &copy; {currentYear} Sữa Xanh - Tụi Con Bán Sữa Hạt. Bảo lưu toàn bộ quyền thương hiệu.
           </span>
           <span className="text-[11px] text-slate-400 whitespace-nowrap">
-            Hệ thống quầy Kiosk xanh • TP. Hồ Chí Minh
+            296 Võ Thành Trang, P. Bảy Hiền • TP. Hồ Chí Minh
           </span>
         </div>
       </div>

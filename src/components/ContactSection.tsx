@@ -36,7 +36,7 @@ export default function ContactSection() {
                 Hợp tác &amp; Liên hệ
               </span>
               <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-slate-800 tracking-tight leading-tight">
-                Gắn Kết Cùng Lành &amp; Sạch
+                Gắn Kết Cùng Sữa Xanh
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 Cho dù bạn là khách hàng cá nhân muốn săn mã ưu đãi giảm giá, doanh nghiệp muốn tổ chức bữa sáng dinh dưỡng định kỳ cho nhân viên, hay đối tác yêu mến mô hình muốn nhượng quyền thương hiệu (kiosk) – chúng tôi luôn sẵn lòng chào đón.
@@ -68,10 +68,10 @@ export default function ContactSection() {
 
             {/* General contacts */}
             <div className="text-xs text-slate-600 space-y-1 bg-slate-50 p-4.5 rounded border border-slate-200 mt-6">
-              <span className="font-bold block text-blue-600">🏢 TRỤ SỞ CHÍNH LÀNH &amp; SẠCH</span>
-              <p>Địa chỉ: 150 Nguyễn Thị Minh Khai, Quận 3, TP. Hồ Chí Minh</p>
-              <p>Hotline hỗ trợ: 0901.234.561</p>
-              <p>Email: hotro@lanhvasach.vn</p>
+              <span className="font-bold block text-blue-600">🏢 TRỤ SỞ CHÍNH SỮA XANH</span>
+              <p>Địa chỉ: 296 Võ Thành Trang, Phường Bảy Hiền, TP. Hồ Chí Minh</p>
+              <p>Hotline hỗ trợ: 082.559.6160</p>
+              <p>Fanpage: facebook.com/TuiConBanSuaHat</p>
             </div>
           </div>
 

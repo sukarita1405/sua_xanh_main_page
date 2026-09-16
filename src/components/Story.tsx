@@ -42,8 +42,18 @@ export default function Story({ onLearnMoreClick }: StoryProps) {
             Khi Sức Khỏe Gặp Gỡ Sự Tiện Lợi Buổi Sáng
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Hàng triệu người trẻ đô thị đang bỏ bữa sáng hoặc nạp vào cơ thể những món ăn nhanh nhiều dầu mỡ, nhiều đường tinh luyện do không có thời gian. <strong>Lành &amp; Sạch</strong> được ra đời với sứ mệnh mang đến giải pháp thay thế hoàn hảo: thuần thực vật, mộc mạc, lành mạnh mà vẫn cực kỳ nhanh chóng.
+            Hàng triệu người trẻ đô thị đang bỏ bữa sáng hoặc nạp vào cơ thể những món ăn nhanh nhiều dầu mỡ, nhiều đường tinh luyện do không có thời gian. <strong>Sữa Xanh</strong> được ra đời với sứ mệnh mang đến giải pháp thay thế hoàn hảo: thuần thực vật, mộc mạc, lành mạnh mà vẫn cực kỳ nhanh chóng.
           </p>
+        </div>
+
+        {/* Real photo band */}
+        <div className="rounded-2xl overflow-hidden border border-blue-500/10 shadow-[0_10px_30px_rgba(14,165,233,0.08)] mb-20">
+          <img
+            src="/images/sx-quay-day-chai.jpg"
+            alt="Dàn sữa hạt tươi nấu mới mỗi ngày tại quầy Sữa Xanh"
+            className="w-full h-56 sm:h-72 md:h-96 object-cover"
+            referrerPolicy="no-referrer"
+          />
         </div>
 
         {/* Content Section (Visual + Highlights) */}
@@ -53,10 +63,10 @@ export default function Story({ onLearnMoreClick }: StoryProps) {
               Trả lại hương vị nguyên bản của nông sản Việt
             </h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Chúng tôi trân quý hạt ngọc trời ban và những củ khoai lang chín mật, quả chuối chín cây từ vườn Nam Bộ. Không đao to búa lớn, bữa sáng tại quầy <strong>Lành &amp; Sạch</strong> là lát bánh chuối ấm áp đẫm nước cốt dừa mịn màng, là củ khoai lang tím bở thơm phức lá dứa rắc sợi dừa bùi bùi. 
+              Chúng tôi trân quý hạt ngọc trời ban và những củ khoai lang chín mật, quả chuối chín cây từ vườn Nam Bộ. Không đao to búa lớn, bữa sáng tại quầy <strong>Sữa Xanh</strong> là ly sữa hạt xay nguyên hạt thơm béo, là món khoai chuối trứng ấm nóng mộc mạc.
             </p>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Mỗi giọt sữa hạt lướt qua vị giác của bạn đều là kết quả của quy trình ngâm hạt đủ giờ khử độc tố, nấu chậm thanh trùng để giữ trọn lượng đạm thực vật, omega và chất béo lành mạnh.
+              Mỗi chai sữa hạt đều được nấu mới mỗi ngày, giữ nguyên nguồn dinh dưỡng, không chất bảo quản - đúng với tinh thần của chuỗi sữa hạt lâu đời nhất Sài Gòn suốt 12 năm qua.
             </p>
             <div className="pt-4 flex">
               <button

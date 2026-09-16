@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Leaf, Menu, X, ArrowRight, Phone } from 'lucide-react';
+import { Menu, X, ArrowRight, Phone } from 'lucide-react';
 
 interface HeaderProps {
   onNavClick: (sectionId: string) => void;
@@ -72,15 +72,15 @@ export default function Header({ onNavClick, currentPage = 'home' }: HeaderProps
             onClick={() => handleItemClick('home')}
             className="flex items-center space-x-2.5 cursor-pointer group"
           >
-            <div className="w-9 h-9 rounded bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
-              <Leaf className="w-5 h-5 text-blue-500 fill-blue-500/10" />
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img src="/images/sx-logo.png" alt="Sữa Xanh - Tụi Con Bán Sữa Hạt" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="block font-display font-extrabold text-lg text-slate-800 tracking-tight leading-none">
-                LÀNH <span className="text-blue-500 font-semibold">&amp; SẠCH</span>
+                SỮA <span className="text-blue-500 font-semibold">XANH</span>
               </span>
               <span className="block text-[9px] text-slate-500 font-bold tracking-[0.15em] uppercase mt-0.5">
-                Sữa hạt &amp; Ăn sáng
+                Tụi Con Bán Sữa Hạt
               </span>
             </div>
           </div>
@@ -105,11 +105,11 @@ export default function Header({ onNavClick, currentPage = 'home' }: HeaderProps
           {/* Call To Action Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:0901234561"
+              href="tel:0825596160"
               className="flex items-center space-x-2 text-xs font-semibold tracking-wider uppercase text-slate-600 hover:text-blue-600 transition-colors"
             >
               <Phone className="w-4 h-4 text-blue-500" />
-              <span>0901.234.561</span>
+              <span>082.559.6160</span>
             </a>
             <button
               onClick={() => handleItemClick('planner')}
@@ -151,11 +151,11 @@ export default function Header({ onNavClick, currentPage = 'home' }: HeaderProps
           ))}
           <div className="pt-4 border-t border-blue-500/10 flex flex-col space-y-4">
             <a
-              href="tel:0901234561"
+              href="tel:0825596160"
               className="flex items-center space-x-3 px-4 py-2 text-slate-600 hover:text-blue-600 text-xs font-bold uppercase tracking-wider"
             >
               <Phone className="w-5 h-5 text-blue-500" />
-              <span>Hotline: 0901.234.561</span>
+              <span>Hotline: 082.559.6160</span>
             </a>
             <button
               onClick={() => handleItemClick('planner')}

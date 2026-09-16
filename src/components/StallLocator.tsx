@@ -10,7 +10,7 @@ export default function StallLocator() {
   const [showCopiedMessage, setShowCopiedMessage] = useState<boolean>(false);
 
   // Extract unique regions
-  const regions = ['All', 'Quận 1', 'Quận 3', 'Quận 5', 'Quận Bình Thạnh', 'Quận Phú Nhuận'];
+  const regions = ['All', ...Array.from(new Set(STALL_LOCATIONS.map((s) => s.region)))];
 
   const filteredStalls = STALL_LOCATIONS.filter((stall) => {
     const matchesRegion = selectedRegion === 'All' || stall.region === selectedRegion;
@@ -214,15 +214,14 @@ export default function StallLocator() {
               {/* Interactive Floating Markers representing stalls */}
               {STALL_LOCATIONS.map((stall, index) => {
                 const isActive = stall.id === activeStallId;
-                // Predefined mock coordinates on the vector graphic map
-                const positions = [
-                  { x: '180px', y: '120px' },
-                  { x: '180px', y: '280px' },
-                  { x: '620px', y: '120px' },
-                  { x: '620px', y: '280px' },
-                  { x: '450px', y: '200px' },
-                ];
-                const pos = positions[index] || { x: '50%', y: '50%' };
+                // Scatter markers across the vector graphic map in a loose grid
+                const cols = 5;
+                const col = index % cols;
+                const row = Math.floor(index / cols);
+                const pos = {
+                  x: `${10 + col * 20}%`,
+                  y: `${18 + row * 22}%`,
+                };
 
                 return (
                   <div
@@ -260,7 +259,7 @@ export default function StallLocator() {
                 <Star className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
                 <span>Đánh giá trung bình hệ thống: <strong>4.9★ (350+ lượt vote)</strong></span>
               </div>
-              <span className="hidden sm:inline-block text-[11px] font-bold text-blue-600 uppercase">Lành &amp; Sạch Việt Nam</span>
+              <span className="hidden sm:inline-block text-[11px] font-bold text-blue-600 uppercase">Sữa Xanh - Tụi Con Bán Sữa Hạt</span>
             </div>
           </div>
         </div>

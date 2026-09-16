@@ -46,35 +46,35 @@ interface ApplicationData {
 const SLIDER_IMAGES = [
   {
     id: 1,
-    image: '/src/assets/images/kiosk_staff_smile_1788665091500.jpg',
+    image: '/images/sua-xanh-staff-bottles.jpg',
     title: 'Phục Vụ Bữa Sáng Bằng Nụ Cười',
     subtitle: 'Năng lượng tích cực lan tỏa đến từng khách hàng trên mọi cung đường Sài Gòn mỗi sớm mai.',
     tag: 'Môi Trường Thân Thiện'
   },
   {
     id: 2,
-    image: '/src/assets/images/kiosk_team_energy_1788665104734.jpg',
+    image: '/images/sx-team-building.jpg',
     title: 'Đội Ngũ Trẻ Trung & Nhiệt Huyết',
     subtitle: 'Đồng đội gắn kết, hỗ trợ lẫn nhau, môi trường tôn trọng và tạo cơ hội phát triển tối đa.',
     tag: 'Văn Hóa Gắn Kết'
   },
   {
     id: 3,
-    image: '/src/assets/images/nut_milk_bottle_1784087725157.jpg',
+    image: '/images/sua-xanh-bottle-closeup.jpg',
     title: 'Sản Phẩm Sạch Từ Tự Nhiên',
-    subtitle: 'Tự hào trao tận tay khách hàng những chai sữa hạt óc chó, hạnh nhân, sen dừa nguyên chất.',
+    subtitle: 'Tự hào trao tận tay khách hàng những chai sữa hạt đậu nành, đậu đỏ, mè đen, hạt sen nguyên chất.',
     tag: '100% Thuần Tự Nhiên'
   },
   {
     id: 4,
-    image: '/src/assets/images/hero_breakfast_1784087707586.jpg',
+    image: '/images/sua-xanh-cover-team.jpg',
     title: 'Bữa Sáng Dinh Dưỡng Miễn Phí',
     subtitle: 'Mỗi ngày làm việc đều được nạp năng lượng bằng sữa hạt ấm và củ quả lành mạnh miễn phí.',
     tag: 'Phúc Lợi Hàng Ngày'
   },
   {
     id: 5,
-    image: '/src/assets/images/steamed_banana_1784087740481.jpg',
+    image: '/images/steamed_banana_1784087740481.jpg',
     title: 'Đào Tạo Kỹ Năng Chuyên Nghiệp',
     subtitle: 'Học cách vận hành quầy, quản lý hàng hóa, kỹ năng giao tiếp và làm việc nhóm hiệu quả.',
     tag: 'Đào Tạo Bài Bản'
@@ -228,10 +228,10 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
     // Simulate server response and persist locally
     setTimeout(() => {
       try {
-        const stored = localStorage.getItem('lanhvasach_recruitment_apps');
+        const stored = localStorage.getItem('suaxanh_recruitment_apps');
         const list = stored ? JSON.parse(stored) : [];
         list.push(newApplication);
-        localStorage.setItem('lanhvasach_recruitment_apps', JSON.stringify(list));
+        localStorage.setItem('suaxanh_recruitment_apps', JSON.stringify(list));
       } catch (err) {
         console.error('LocalStorage write error', err);
       }
@@ -270,7 +270,7 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
               Trang chủ
             </button>
             <span>/</span>
-            <span className="text-blue-600 font-bold">Tuyển dụng Kiosk Lành &amp; Sạch</span>
+            <span className="text-blue-600 font-bold">Tuyển dụng Kiosk Sữa Xanh</span>
           </nav>
 
           <button
@@ -293,7 +293,7 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
           <div className="relative z-10 max-w-3xl space-y-5">
             <div className="inline-flex items-center space-x-2 bg-white/15 backdrop-blur-md border border-white/20 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white">
               <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-              <span>Gia nhập Đội ngũ Kiosk Lành &amp; Sạch 2026</span>
+              <span>Gia nhập Đội ngũ Kiosk Sữa Xanh 2026</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight leading-tight">
@@ -490,10 +490,10 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
                     Hotline Tuyển Dụng Trực Tiếp
                   </span>
                   <a
-                    href="tel:0901234561"
+                    href="tel:0825596160"
                     className="font-bold text-slate-800 hover:text-blue-600 transition-colors text-sm"
                   >
-                    0901.234.561 (Ms. Mai - P. Nhân Sự)
+                    082.559.6160 (Ms. Mai - P. Nhân Sự)
                   </a>
                   <span className="text-[10px] text-slate-500 block mt-0.5">
                     Hỗ trợ Zalo &amp; cuộc gọi từ 7h30 - 20h30 hàng ngày
@@ -819,7 +819,7 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
                       Hồ Sơ Đã Được Tiếp Nhận!
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                      Cảm ơn bạn <strong>{applicationReceipt?.fullName}</strong> đã quan tâm và đăng ký gia nhập chuỗi quầy Kiosk Lành &amp; Sạch.
+                      Cảm ơn bạn <strong>{applicationReceipt?.fullName}</strong> đã quan tâm và đăng ký gia nhập chuỗi quầy Sữa Xanh.
                     </p>
                   </div>
 
@@ -873,7 +873,7 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-900 space-y-1">
                     <strong className="block font-bold">Quy trình bước tiếp theo:</strong>
                     <p>
-                      Bộ phận Nhân sự Lành &amp; Sạch sẽ liên hệ bạn qua <strong>{applicationReceipt?.contactMethod}</strong> số <strong>{applicationReceipt?.phone}</strong> trong vòng <strong>24 giờ làm việc</strong> để sắp xếp lịch gặp gỡ và hướng dẫn nhận việc tại quầy thuận tiện nhất!
+                      Bộ phận Nhân sự Sữa Xanh sẽ liên hệ bạn qua <strong>{applicationReceipt?.contactMethod}</strong> số <strong>{applicationReceipt?.phone}</strong> trong vòng <strong>24 giờ làm việc</strong> để sắp xếp lịch gặp gỡ và hướng dẫn nhận việc tại quầy thuận tiện nhất!
                     </p>
                   </div>
 
@@ -889,7 +889,7 @@ export default function RecruitmentPage({ onNavigateHome }: RecruitmentPageProps
                       onClick={() => onNavigateHome('home')}
                       className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 btn-3d-blue px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider cursor-pointer"
                     >
-                      <span>Về Trang Chủ Lành &amp; Sạch</span>
+                      <span>Về Trang Chủ Sữa Xanh</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
