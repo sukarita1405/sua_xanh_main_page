@@ -195,11 +195,11 @@ export default function StallLocator() {
                 src="/images/sua-xanh-staff-bottles.jpg"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover opacity-[0.16] grayscale-[15%]"
+                className="absolute inset-0 w-full h-full object-cover opacity-40"
                 referrerPolicy="no-referrer"
               />
-              {/* Wash overlay to keep pins/text legible over the photo */}
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-50/85 via-slate-50/60 to-blue-50/85"></div>
+              {/* Light wash so pins/text stay legible without hiding the photo */}
+              <div className="absolute inset-0 bg-white/35"></div>
 
               {/* Decorative grid pattern */}
               <div
@@ -222,10 +222,10 @@ export default function StallLocator() {
                 <path d="M 0 500 Q 300 450 600 520 T 1000 480" fill="none" stroke="#e2e8f0" strokeWidth="64" />
               </svg>
 
-              {/* Decorative corner icons for variety (leaf, coffee, sparkle) */}
-              <Leaf className="absolute top-6 right-8 w-6 h-6 text-emerald-500/30 rotate-12" />
-              <Coffee className="absolute bottom-24 right-14 w-6 h-6 text-blue-500/25 -rotate-6" />
-              <Sparkles className="absolute top-1/2 left-8 w-5 h-5 text-sky-500/25" />
+              {/* Decorative corner icons for variety (leaf, coffee, sparkle) - tucked in corners so stall pins never cover them */}
+              <Leaf className="absolute top-3 left-3 w-7 h-7 text-emerald-600/60 rotate-12 drop-shadow-sm" />
+              <Coffee className="absolute top-3 right-3 w-7 h-7 text-amber-700/60 -rotate-6 drop-shadow-sm" />
+              <Sparkles className="absolute bottom-3 right-3 w-6 h-6 text-blue-600/60 drop-shadow-sm" />
 
               {/* Interactive Floating Markers representing stalls */}
               {STALL_LOCATIONS.map((stall, index) => {
