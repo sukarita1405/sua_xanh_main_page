@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { STALL_LOCATIONS } from '../data/mockData';
 import { StallLocation } from '../types';
-import { MapPin, Phone, Clock, Search, Navigation, Compass, Star, Check } from 'lucide-react';
+import { MapPin, Phone, Clock, Search, Navigation, Compass, Star, Check, Leaf, Coffee, Sparkles } from 'lucide-react';
 
 export default function StallLocator() {
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
@@ -190,6 +190,17 @@ export default function StallLocator() {
 
             {/* Vector Styled Map Mockup Graphic */}
             <div className="absolute inset-0 bg-[#f1f5f9] -z-0 flex items-center justify-center">
+              {/* Decorative real photo backdrop (quầy Sữa Xanh ngoài phố) */}
+              <img
+                src="/images/sua-xanh-staff-bottles.jpg"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.16] grayscale-[15%]"
+                referrerPolicy="no-referrer"
+              />
+              {/* Wash overlay to keep pins/text legible over the photo */}
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-50/85 via-slate-50/60 to-blue-50/85"></div>
+
               {/* Decorative grid pattern */}
               <div
                 className="absolute inset-0 opacity-[0.12]"
@@ -210,6 +221,11 @@ export default function StallLocator() {
                 {/* Diagonal park or river */}
                 <path d="M 0 500 Q 300 450 600 520 T 1000 480" fill="none" stroke="#e2e8f0" strokeWidth="64" />
               </svg>
+
+              {/* Decorative corner icons for variety (leaf, coffee, sparkle) */}
+              <Leaf className="absolute top-6 right-8 w-6 h-6 text-emerald-500/30 rotate-12" />
+              <Coffee className="absolute bottom-24 right-14 w-6 h-6 text-blue-500/25 -rotate-6" />
+              <Sparkles className="absolute top-1/2 left-8 w-5 h-5 text-sky-500/25" />
 
               {/* Interactive Floating Markers representing stalls */}
               {STALL_LOCATIONS.map((stall, index) => {
